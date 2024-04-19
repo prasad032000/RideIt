@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name="driver")
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +29,11 @@ public class Driver {
 
     double rating;
 
+    @OneToOne(mappedBy = "driver",cascade = CascadeType.ALL)
     Cab cab;
+
+    @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
+    List<TripBooking> bookings =new ArrayList<>();
+
 
 }

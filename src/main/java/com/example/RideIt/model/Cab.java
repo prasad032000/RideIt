@@ -20,6 +20,9 @@ public class Cab {
 
     String company;
 
+    @Column(unique = true,nullable = false)
+    String cabNo;
+
     String carModel;
 
     @Enumerated(EnumType.STRING)
@@ -29,5 +32,7 @@ public class Cab {
 
     double farePerKm;
 
+    @OneToOne
+    @JoinColumn
     Driver driver;
 }

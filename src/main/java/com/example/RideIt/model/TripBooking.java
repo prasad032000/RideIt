@@ -18,7 +18,7 @@ public class TripBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    int id;
+    String id;
 
     String source;
 
@@ -32,4 +32,12 @@ public class TripBooking {
 
     @CreationTimestamp
     Date bookedAt;
+
+    @ManyToOne
+    @JoinColumn
+    Customer customer;
+
+    @ManyToOne
+    @JoinColumn
+    Driver driver;
 }

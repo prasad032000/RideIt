@@ -5,13 +5,16 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name="customer")
+@Builder
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +26,12 @@ public class Customer {
 
     String email;
 
+    String address;
+
     @Enumerated(EnumType.STRING)
     Gender gender;
 
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    List<TripBooking> bookings = new ArrayList<>();
 
 }
