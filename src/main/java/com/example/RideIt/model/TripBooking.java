@@ -14,11 +14,14 @@ import java.util.Date;//util contains timeStamp+date
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class TripBooking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
+
+    String bookingId;
 
     String source;
 

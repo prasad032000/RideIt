@@ -12,4 +12,7 @@ public interface CustomerRepository extends JpaRepository<Customer,Integer> {
     //This is normal mysql query thus native query=true
     @Query(value = " Select c from Customer c where c.gender=:g and c.age=:age")//this is in form of java query
     List<Customer> getByGenderAndAgeGreaterThan(Gender g, int age);
+
+    @Query(value = "Select c from Customer c where c.email=:email")
+    Customer findByEmailId(String email);
 }

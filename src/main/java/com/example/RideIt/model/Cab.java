@@ -25,6 +25,8 @@ public class Cab {
 
     String carModel;
 
+    boolean available;
+
     @Enumerated(EnumType.STRING)
     CarType carType;
 
