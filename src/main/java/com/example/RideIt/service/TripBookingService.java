@@ -58,4 +58,6 @@ public class TripBookingService {
         //last step -> prepare booking response
         return BookingTransformer.tripBookingToTripBookingResponse(savedTripBooking);
     }
+
+
 }

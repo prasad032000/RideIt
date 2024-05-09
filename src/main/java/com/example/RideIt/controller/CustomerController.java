@@ -39,5 +39,17 @@ public class CustomerController {
         return new ResponseEntity<>(customerResponses,HttpStatus.FOUND);
     }
 
+    //update the existing customer
 
+    @PutMapping()
+    public ResponseEntity<CustomerResponse> updateCustomer(@RequestBody CustomerRequest customerRequest){
+        CustomerResponse response = customerService.updateCustomer(customerRequest);
+        return new ResponseEntity<>(response,HttpStatus.CREATED);
+    }
+
+    @DeleteMapping()
+    public ResponseEntity<String> deleteCustomerByEmail(@RequestParam int id){
+        customerService.deletedCustomer(id);
+        return new ResponseEntity<>("Deleted",HttpStatus.OK);
+    }
 }

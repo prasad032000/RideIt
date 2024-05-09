@@ -20,4 +20,6 @@ public class TripBookingController {
         TripBookingResponse response = tripBookingService.bookCab(applyCoupon,tripBookingRequest);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
+
 }

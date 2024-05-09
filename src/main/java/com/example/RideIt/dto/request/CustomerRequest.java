@@ -10,7 +10,6 @@ import lombok.experimental.FieldDefaults;
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomerRequest {
-
     String name;
 
     int age;

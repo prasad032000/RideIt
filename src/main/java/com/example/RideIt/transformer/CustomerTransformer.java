@@ -18,8 +18,12 @@ public class CustomerTransformer {
 
     public static CustomerResponse customerToCustomerResponse(Customer customer){
         return CustomerResponse.builder()
+                .gender(customer.getGender())
+                .age(customer.getAge())
+                .address(customer.getAddress())
                 .name(customer.getName())
                 .email(customer.getEmail())
                 .build();
     }
+
 }
